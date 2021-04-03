@@ -10,7 +10,8 @@
     // Could get the parameter directly from request
     //String companyName = request.getParameter("name");
     // Or get an attribute appended to request
-    String companyName = (String) request.getAttribute("companyName");
+    // String companyName = (String) request.getAttribute("companyName");
+    // Or I can finally access it via Expression Language, just like below
 %>
 <html>
 <head>
@@ -19,7 +20,7 @@
 <body>
 
     <h1>New company successfully created.</h1>
-    <h2><%= companyName %></h2>
+    <h2>${ companyName }</h2>
 
 </body>
 </html>

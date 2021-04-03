@@ -1,11 +1,20 @@
 package com.example.my_first_java_servlet;
 
+import java.util.Date;
+
 public class Company {
     private int id;
-    private String nome;
+    private String name;
+    private Date createdAt;
 
     public Company(String nome) {
-        this.nome = nome;
+        this.name = nome;
+        this.createdAt = new Date();
+    }
+
+    public Company(String nome, Date createdAt) {
+        this.name = nome;
+        this.createdAt = createdAt;
     }
 
     public int getId() {
@@ -16,11 +25,19 @@ public class Company {
         this.id = id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getName() {
+        return name;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public Date getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 }

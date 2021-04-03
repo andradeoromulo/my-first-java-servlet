@@ -1,5 +1,5 @@
-<%@ page import="com.example.my_first_java_servlet.Company" %>
-<%@ page import="java.util.List" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <%--
   Created by IntelliJ IDEA.
   User: romuloandrade
@@ -15,27 +15,22 @@
 <body>
 
     <h1>Companies</h1>
-    <ul>
 
-    <%
-        List<Company> companies = (List) request.getAttribute("companies");
-
-        if(companies.size() == 0) {
-    %>
-        <p>No registered companies so far</p>
-    <%
-        } else {
-            for (Company company : companies) {
-    %>
-        <li><%= company.getNome() %></li>
-    <%
-            }
-        }
-    %>
-
-    </ul>
+    <c:if test="${not empty companies}">
+        <ul>
+            <c:forEach items="${companies}" var="company">
+                <li>
+                    ${company.name} -
+                    <fmt:formatDate value="${company.createdAt}" pattern="dd/MM/yyyy"></fmt:formatDate>
+                </li>
+            </c:forEach>
+        </ul>
+    </c:if>
+    <c:if test="${empty companies}">
+            <p>No registered companies so far</p>
+    </c:if>
 
 </body>
 </html>
-}
+
 
