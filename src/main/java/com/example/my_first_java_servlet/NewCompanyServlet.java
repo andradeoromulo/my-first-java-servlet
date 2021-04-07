@@ -29,12 +29,17 @@ public class NewCompanyServlet extends HttpServlet {
         Company newCompany = new Company(companyName, companyCreatedAt);
 
         Database db = new Database();
-        db.add(newCompany);
+        db.create(newCompany);
 
         req.setAttribute("companyName", newCompany.getName());
 
-        RequestDispatcher rd =  req.getRequestDispatcher("/newCompanyResponse.jsp");
-        rd.forward(req, resp);
+        // We're not going to dispatch request to newCompanyResponse.jsp anymore
+        // But implementing a client-side redirect to allCompaniesServlet
+
+        //RequestDispatcher rd =  req.getRequestDispatcher("/newCompanyResponse.jsp");
+        //rd.forward(req, resp);
+
+        resp.sendRedirect("companies");
 
     }
 }

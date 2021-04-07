@@ -15,7 +15,7 @@ public class AllCompaniesServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse resp) throws IOException, ServletException {
 
         Database db = new Database();
-        List<Company> companies = db.getAll();
+        List<Company> companies = db.findAll();
 
         request.setAttribute("companies", companies);
 

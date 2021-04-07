@@ -17,14 +17,27 @@
     <h1>Companies</h1>
 
     <c:if test="${not empty companies}">
-        <ul>
-            <c:forEach items="${companies}" var="company">
-                <li>
-                    ${company.name} -
-                    <fmt:formatDate value="${company.createdAt}" pattern="dd/MM/yyyy"></fmt:formatDate>
-                </li>
-            </c:forEach>
-        </ul>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Created At</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach items="${companies}" var="company">
+                    <tr>
+                        <td>${company.name}</td>
+                        <td><fmt:formatDate value="${company.createdAt}" pattern="dd/MM/yyyy"></fmt:formatDate></td>
+                        <td>
+                            <a href="show-company?id=${company.id}">edit</a>
+                            <a href="remove-company?id=${company.id}">remove</a>
+                        </td>
+                    </tr>
+                </c:forEach>
+            </tbody>
+        </table>
     </c:if>
     <c:if test="${empty companies}">
             <p>No registered companies so far</p>
