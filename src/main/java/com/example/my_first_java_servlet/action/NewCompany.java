@@ -1,22 +1,22 @@
-package com.example.my_first_java_servlet;
+package com.example.my_first_java_servlet.action;
 
-import javax.servlet.RequestDispatcher;
+import com.example.my_first_java_servlet.model.Company;
+import com.example.my_first_java_servlet.model.Database;
+
 import javax.servlet.ServletException;
-import javax.servlet.http.*;
-import javax.servlet.annotation.*;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@WebServlet(name = "NewCompanyServlet", value = "/new-company")
-public class NewCompanyServlet extends HttpServlet {
+public class NewCompany {
 
-    @Override
-    protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
+    public void run(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-        String companyName = req.getParameter("name");
-        String companyCreatedAtInput = req.getParameter("date");
+        String companyName = request.getParameter("name");
+        String companyCreatedAtInput = request.getParameter("date");
 
         Date companyCreatedAt = null;
         try {
@@ -31,7 +31,7 @@ public class NewCompanyServlet extends HttpServlet {
         Database db = new Database();
         db.create(newCompany);
 
-        req.setAttribute("companyName", newCompany.getName());
+        request.setAttribute("companyName", newCompany.getName());
 
         // We're not going to dispatch request to newCompanyResponse.jsp anymore
         // But implementing a client-side redirect to allCompaniesServlet
@@ -39,7 +39,7 @@ public class NewCompanyServlet extends HttpServlet {
         //RequestDispatcher rd =  req.getRequestDispatcher("/newCompanyResponse.jsp");
         //rd.forward(req, resp);
 
-        resp.sendRedirect("companies");
+        response.sendRedirect("router?action=list-companies");
 
     }
 }

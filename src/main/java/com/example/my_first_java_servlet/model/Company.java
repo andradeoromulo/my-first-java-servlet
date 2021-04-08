@@ -1,4 +1,4 @@
-package com.example.my_first_java_servlet;
+package com.example.my_first_java_servlet.model;
 
 import java.util.Date;
 

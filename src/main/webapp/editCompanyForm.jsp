@@ -8,11 +8,12 @@
 </head>
 <body>
 
-    <h1>Create new Company</h1>
+    <h1>Update Company</h1>
 
-    <c:url value="/edit-company" var="newCompanyServlet" />
-    <form action="${newCompanyServlet}" method="post">
-        <input required type="hidden" name="id" value="${company.id}">
+    <c:url value="/router" var="routerPath" />
+    <form action="${routerPath}" method="post">
+        <input type="hidden" name="id" value="${company.id}">
+        <input type="hidden" name="action" value="update-company">
 
         <label>
             Name:

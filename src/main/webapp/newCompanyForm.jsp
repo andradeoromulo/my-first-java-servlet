@@ -9,8 +9,7 @@
 
     <h1>Create new Company</h1>
 
-    <c:url value="/new-company" var="newCompanyServlet" />
-    <form action="${newCompanyServlet}" method="post">
+    <form action="router?action=new-company" method="post">
         <label>
             Name:
             <input required type="text" name="name">
