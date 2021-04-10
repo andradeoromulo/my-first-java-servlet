@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class RemoveCompany implements Action {
 
-    public String run(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    public String run(HttpServletRequest request, HttpServletResponse response) {
 
         int companyId = Integer.parseInt(request.getParameter("id"));
 

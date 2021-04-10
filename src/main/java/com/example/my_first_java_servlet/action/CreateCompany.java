@@ -13,7 +13,7 @@ import java.util.Date;
 
 public class CreateCompany implements Action {
 
-    public String run(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+    public String run(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 
         String companyName = request.getParameter("name");
         String companyCreatedAtInput = request.getParameter("date");

@@ -43,6 +43,8 @@
             <p>No registered companies so far</p>
     </c:if>
 
+    <c:import url="sessionInformationScript.jsp" />
+
 </body>
 </html>
 

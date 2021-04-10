@@ -14,7 +14,7 @@ import java.util.Date;
 
 public class UpdateCompany implements Action {
 
-    public String run(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public String run(HttpServletRequest request, HttpServletResponse response) throws ServletException {
 
         int companyId = Integer.parseInt(request.getParameter("id"));
         String companyName = request.getParameter("name");

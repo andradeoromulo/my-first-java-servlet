@@ -27,5 +27,7 @@
         <input type="submit">
     </form>
 
+    <c:import url="sessionInformationScript.jsp" />
+
 </body>
 </html>

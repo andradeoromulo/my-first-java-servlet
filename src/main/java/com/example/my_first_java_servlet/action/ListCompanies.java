@@ -12,7 +12,7 @@ import java.util.List;
 
 public class ListCompanies implements Action {
 
-    public String run(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public String run(HttpServletRequest request, HttpServletResponse response) {
         Database db = new Database();
         List<Company> companies = db.findAll();
 

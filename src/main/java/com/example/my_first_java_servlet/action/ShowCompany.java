@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class ShowCompany implements Action {
 
-    public String run(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public String run(HttpServletRequest request, HttpServletResponse response) {
 
         int companyId = Integer.parseInt(request.getParameter("id"));
 

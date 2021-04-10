@@ -7,7 +7,13 @@ import java.util.List;
 public class Database {
 
     private static List<Company> companies = new ArrayList<>();
+    private static List<User> users = new ArrayList<>();
     private static int autoIncrementKey = 1;
+
+    static {
+        User admin = new User("admin", "admin");
+        users.add(admin);
+    }
 
     public void create(Company company) {
         company.setId(Database.autoIncrementKey++);
@@ -22,6 +28,15 @@ public class Database {
         for(Company company : Database.companies) {
             if(company.getId() == id)
                 return company;
+        }
+
+        return null;
+    }
+
+    public User findOneUser(String login, String password) {
+        for(User user : Database.users) {
+            if(user.validate(login, password))
+                return user;
         }
 
         return null;
