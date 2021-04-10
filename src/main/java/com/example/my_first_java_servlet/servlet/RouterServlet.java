@@ -13,17 +13,7 @@ public class RouterServlet extends HttpServlet {
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        HttpSession session = req.getSession();
-        boolean userIsNotAuthenticated = (session.getAttribute("user") == null);
-
         String action = req.getParameter("action");
-        boolean actionIsProtected = !(action.equals("Login") || action.equals("Authenticate"));
-
-        if(userIsNotAuthenticated && actionIsProtected) {
-            resp.sendRedirect("router?action=Login");
-            return;
-        }
-
         String className = "com.example.my_first_java_servlet.action." + action;
         String target = null;
 
