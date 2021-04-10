@@ -7,7 +7,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "RouterServlet", value = "/router")
+//@WebServlet(name = "RouterServlet", value = "/router")
 public class RouterServlet extends HttpServlet {
 
     @Override

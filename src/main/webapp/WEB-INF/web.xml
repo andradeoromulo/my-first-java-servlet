@@ -24,4 +24,14 @@
         <url-pattern>/router</url-pattern>
     </filter-mapping>
 
+    <filter>
+        <filter-name>RouterFilter</filter-name>
+        <filter-class>com.example.my_first_java_servlet.servlet.RouterFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>RouterFilter</filter-name>
+        <url-pattern>/router</url-pattern>
+    </filter-mapping>
+
 </web-app>
