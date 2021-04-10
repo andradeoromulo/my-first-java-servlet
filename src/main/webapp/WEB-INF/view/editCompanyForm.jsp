@@ -13,7 +13,7 @@
     <c:url value="/router" var="routerPath" />
     <form action="${routerPath}" method="post">
         <input type="hidden" name="id" value="${company.id}">
-        <input type="hidden" name="action" value="update-company">
+        <input type="hidden" name="action" value="UpdateCompany">
 
         <label>
             Name:

@@ -9,9 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-public class ShowCompany {
+public class ShowCompany implements Action {
 
-    public void run(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public String run(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         int companyId = Integer.parseInt(request.getParameter("id"));
 
@@ -20,8 +20,7 @@ public class ShowCompany {
 
         request.setAttribute("company", company);
 
-        RequestDispatcher rd = request.getRequestDispatcher("/editCompanyForm.jsp");
-        rd.forward(request, response);
+        return "forward:editCompanyForm.jsp";
 
     }
 

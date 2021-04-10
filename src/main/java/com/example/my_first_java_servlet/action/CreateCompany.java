@@ -3,7 +3,6 @@ package com.example.my_first_java_servlet.action;
 import com.example.my_first_java_servlet.model.Company;
 import com.example.my_first_java_servlet.model.Database;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,11 +11,10 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class UpdateCompany implements Action {
+public class CreateCompany implements Action {
 
-    public String run(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public String run(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
 
-        int companyId = Integer.parseInt(request.getParameter("id"));
         String companyName = request.getParameter("name");
         String companyCreatedAtInput = request.getParameter("date");
 
@@ -28,13 +26,20 @@ public class UpdateCompany implements Action {
             throw new ServletException(e);
         }
 
-        Company company = new Company(companyName, companyCreatedAt);
+        Company newCompany = new Company(companyName, companyCreatedAt);
 
         Database db = new Database();
-        db.updateOne(companyId, company);
+        db.create(newCompany);
+
+        request.setAttribute("companyName", newCompany.getName());
+
+        // We're not going to dispatch request to newCompanyResponse.jsp anymore
+        // But implementing a client-side redirect to allCompaniesServlet
+
+        //RequestDispatcher rd =  req.getRequestDispatcher("/newCompanyResponse.jsp");
+        //rd.forward(req, resp);
 
         return "redirect:router?action=ListCompanies";
 
     }
-
 }

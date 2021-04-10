@@ -9,7 +9,7 @@
 
     <h1>Create new Company</h1>
 
-    <form action="router?action=new-company" method="post">
+    <form action="router?action=CreateCompany" method="post">
         <label>
             Name:
             <input required type="text" name="name">

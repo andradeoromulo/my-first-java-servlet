@@ -10,16 +10,15 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-public class ListCompanies {
+public class ListCompanies implements Action {
 
-    public void run(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    public String run(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Database db = new Database();
         List<Company> companies = db.findAll();
 
         request.setAttribute("companies", companies);
 
-        RequestDispatcher rd = request.getRequestDispatcher("/allCompaniesResponse.jsp");
-        rd.forward(request, response);
+        return "forward:allCompaniesResponse.jsp";
     }
 
 }

@@ -31,8 +31,8 @@
                         <td>${company.name}</td>
                         <td><fmt:formatDate value="${company.createdAt}" pattern="dd/MM/yyyy"></fmt:formatDate></td>
                         <td>
-                            <a href="router?action=show-company&id=${company.id}">edit</a>
-                            <a href="router?action=remove-company&id=${company.id}">remove</a>
+                            <a href="router?action=ShowCompany&id=${company.id}">edit</a>
+                            <a href="router?action=RemoveCompany&id=${company.id}">remove</a>
                         </td>
                     </tr>
                 </c:forEach>
